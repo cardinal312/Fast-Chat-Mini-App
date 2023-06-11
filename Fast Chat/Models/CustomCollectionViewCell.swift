@@ -54,7 +54,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         button.isHidden = true
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 10
         button.setTitle("Войти", for: .normal)
         button.titleLabel?.font = UIFont(name: "Optima", size: 16)
@@ -63,20 +63,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }()
     
     @objc private func goToRegVc() {
-        
         self.delegate?.moveToRegVC()
     }
     
     @objc private func goToLogVc() {
-        
         self.delegate?.moveToLoginVC()
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        
     }
     
     required init?(coder: NSCoder) {

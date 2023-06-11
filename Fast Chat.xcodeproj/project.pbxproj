@@ -16,6 +16,7 @@
 		FA32E3CE2A344A2D00A47780 /* Slides.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CD2A344A2D00A47780 /* Slides.swift */; };
 		FA32E3D02A344B6800A47780 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CF2A344B6800A47780 /* RegViewController.swift */; };
 		FA32E3D22A344BA200A47780 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3D12A344BA200A47780 /* LoginViewController.swift */; };
+		FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA32E3CD2A344A2D00A47780 /* Slides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slides.swift; sourceTree = "<group>"; };
 		FA32E3CF2A344B6800A47780 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		FA32E3D12A344BA200A47780 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				FA32E3C92A34495500A47780 /* StartViewController.swift */,
-				FA32E3CF2A344B6800A47780 /* RegViewController.swift */,
-				FA32E3D12A344BA200A47780 /* LoginViewController.swift */,
+				FAAC360F2A34993D00189A76 /* Authentication */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,6 +104,7 @@
 		FA32E3C72A3448CD00A47780 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,6 +116,15 @@
 				FA32E3CD2A344A2D00A47780 /* Slides.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAAC360F2A34993D00189A76 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				FA32E3CF2A344B6800A47780 /* RegViewController.swift */,
+				FA32E3D12A344BA200A47780 /* LoginViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				FA07DC1D2A33AAE200541EE3 /* SceneDelegate.swift in Sources */,
 				FA32E3CC2A3449BD00A47780 /* CustomCollectionViewCell.swift in Sources */,
 				FA32E3CE2A344A2D00A47780 /* Slides.swift in Sources */,
+				FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
