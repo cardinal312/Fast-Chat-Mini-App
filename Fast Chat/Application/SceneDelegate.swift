@@ -21,3 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+//UINavigationController(rootViewController: StartViewController())
+
+

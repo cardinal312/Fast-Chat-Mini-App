@@ -39,7 +39,7 @@ final class RegistrationView: UIView {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.textColor = .systemRed
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -57,7 +57,7 @@ final class RegistrationView: UIView {
         textfield.textColor = .systemRed
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -76,7 +76,7 @@ final class RegistrationView: UIView {
         textfield.textColor = .systemRed
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     

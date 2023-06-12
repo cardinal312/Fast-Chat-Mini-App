@@ -102,6 +102,7 @@ extension StartViewController: CustomCollectionViewCellProtocol {
     func moveToLoginVC() {
         navigationController?.pushViewController(LoginViewController(), animated: true)
         print("Go to Login button pressed! 😄🔥")
+        //navigationController?.pushViewController(MainTabBarController(), animated: true)
     }
 
 }

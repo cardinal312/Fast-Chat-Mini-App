@@ -22,7 +22,7 @@ class RegViewController: UIViewController {
         view.addGestureRecognizer(viewTapGesture)
     }
     
-    @objc func viewEndEdition(sender: UIGestureRecognizer) {
+    @objc private func viewEndEdition(sender: UIGestureRecognizer) {
         self.view.endEditing(true)
         print("Gesture tapped")
     }

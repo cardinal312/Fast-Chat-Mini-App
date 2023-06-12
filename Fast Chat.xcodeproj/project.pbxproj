@@ -16,6 +16,12 @@
 		FA32E3CE2A344A2D00A47780 /* Slides.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CD2A344A2D00A47780 /* Slides.swift */; };
 		FA32E3D02A344B6800A47780 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CF2A344B6800A47780 /* RegViewController.swift */; };
 		FA32E3D22A344BA200A47780 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3D12A344BA200A47780 /* LoginViewController.swift */; };
+		FACFB2BF2A36FD5B00997ABD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2BE2A36FD5B00997ABD /* LoginView.swift */; };
+		FACFB2C32A37012400997ABD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C22A37012400997ABD /* MainTabBarController.swift */; };
+		FACFB2C52A37018E00997ABD /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C42A37018E00997ABD /* UsersViewController.swift */; };
+		FACFB2C72A3701D500997ABD /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C62A3701D500997ABD /* ChatsViewController.swift */; };
+		FACFB2CA2A370DE300997ABD /* UIColor + Entension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */; };
+		FACFB2CC2A370E6D00997ABD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2CB2A370E6D00997ABD /* Colors.swift */; };
 		FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +37,12 @@
 		FA32E3CD2A344A2D00A47780 /* Slides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slides.swift; sourceTree = "<group>"; };
 		FA32E3CF2A344B6800A47780 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		FA32E3D12A344BA200A47780 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FACFB2BE2A36FD5B00997ABD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FACFB2C22A37012400997ABD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		FACFB2C42A37018E00997ABD /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		FACFB2C62A3701D500997ABD /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Entension.swift"; sourceTree = "<group>"; };
+		FACFB2CB2A370E6D00997ABD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +80,7 @@
 				FA32E3C62A3448C100A47780 /* Controllers */,
 				FA32E3C72A3448CD00A47780 /* Views */,
 				FA32E3C82A3448DB00A47780 /* Models */,
+				FACFB2C02A3700B400997ABD /* Helpers */,
 				FA07DC2E2A33AEA500541EE3 /* SupportingFiles */,
 			);
 			path = "Fast Chat";
@@ -97,6 +110,7 @@
 			children = (
 				FA32E3C92A34495500A47780 /* StartViewController.swift */,
 				FAAC360F2A34993D00189A76 /* Authentication */,
+				FACFB2C12A3700C900997ABD /* Tabbar */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */,
+				FACFB2BE2A36FD5B00997ABD /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +140,41 @@
 				FA32E3D12A344BA200A47780 /* LoginViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FACFB2C02A3700B400997ABD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FACFB2C82A370DC500997ABD /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FACFB2C12A3700C900997ABD /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				FACFB2C22A37012400997ABD /* MainTabBarController.swift */,
+				FACFB2C42A37018E00997ABD /* UsersViewController.swift */,
+				FACFB2C62A3701D500997ABD /* ChatsViewController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		FACFB2C82A370DC500997ABD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */,
+				FACFB2CD2A370EA400997ABD /* Colors */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FACFB2CD2A370EA400997ABD /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				FACFB2CB2A370E6D00997ABD /* Colors.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,10 +250,16 @@
 				FA32E3D22A344BA200A47780 /* LoginViewController.swift in Sources */,
 				FA32E3CA2A34495500A47780 /* StartViewController.swift in Sources */,
 				FA32E3D02A344B6800A47780 /* RegViewController.swift in Sources */,
+				FACFB2CC2A370E6D00997ABD /* Colors.swift in Sources */,
+				FACFB2C52A37018E00997ABD /* UsersViewController.swift in Sources */,
+				FACFB2CA2A370DE300997ABD /* UIColor + Entension.swift in Sources */,
+				FACFB2C32A37012400997ABD /* MainTabBarController.swift in Sources */,
+				FACFB2BF2A36FD5B00997ABD /* LoginView.swift in Sources */,
 				FA07DC1B2A33AAE200541EE3 /* AppDelegate.swift in Sources */,
 				FA07DC1D2A33AAE200541EE3 /* SceneDelegate.swift in Sources */,
 				FA32E3CC2A3449BD00A47780 /* CustomCollectionViewCell.swift in Sources */,
 				FA32E3CE2A344A2D00A47780 /* Slides.swift in Sources */,
+				FACFB2C72A3701D500997ABD /* ChatsViewController.swift in Sources */,
 				FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
