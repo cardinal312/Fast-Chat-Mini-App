@@ -20,11 +20,24 @@ class RegViewController: UIViewController {
         
         viewTapGesture.addTarget(self, action: #selector(viewEndEdition(sender:)))
         view.addGestureRecognizer(viewTapGesture)
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .remove, style: .plain, target: self, action: #selector(goToStartVC))
+        
+        
+       // self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .done, target:nil, action:nil)
+    
     }
+    
+    
     
     @objc private func viewEndEdition(sender: UIGestureRecognizer) {
         self.view.endEditing(true)
         print("Gesture tapped")
+    }
+    
+    @objc private func goToStartVC() {
+        navigationController?.pushViewController(StartViewController(), animated: true)
     }
     
     override func loadView() {
@@ -34,6 +47,12 @@ class RegViewController: UIViewController {
 }
 
 extension RegViewController: RegistrationViewProtocol {
+    
+    
+    func moveToLogVC() {
+        navigationController?.pushViewController(LoginViewController(), animated: true)
+    }
+    
     
     func goForward() {
         print("Registration view controller button tapped")

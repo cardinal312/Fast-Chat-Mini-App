@@ -9,6 +9,7 @@ import UIKit
 
 protocol RegistrationViewProtocol: AnyObject {
     func goForward()
+    func moveToLogVC()
 }
 
 final class RegistrationView: UIView {
@@ -39,7 +40,7 @@ final class RegistrationView: UIView {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.textColor = .systemRed
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.attributedPlaceholder = NSAttributedString(string: "Email:", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -57,7 +58,7 @@ final class RegistrationView: UIView {
         textfield.textColor = .systemRed
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.attributedPlaceholder = NSAttributedString(string: "пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -76,7 +77,7 @@ final class RegistrationView: UIView {
         textfield.textColor = .systemRed
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.attributedPlaceholder = NSAttributedString(string: "повторить пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -90,11 +91,22 @@ final class RegistrationView: UIView {
         return button
     }()
     
+    private lazy var haveAccountbutton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("есть аккаунд?", for: .normal)
+        button.backgroundColor = .clear
+        button.titleLabel?.font = UIFont(name: "Bonodi Ornaments", size: 7)
+        button.titleLabel?.textColor = .white
+        button.addTarget(self, action: #selector(goToLoginVC), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - INIT FRAME
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .gray
+        self.backgroundColor = .black
         setup()
         
     }
@@ -118,6 +130,11 @@ final class RegistrationView: UIView {
         self.passwordView2.layer.cornerRadius = 24
         
         }
+    
+    @objc private func goToLoginVC() {
+        print("Est accound button tapped")
+        self.delegate?.moveToLogVC()
+    }
     
     
     @objc private func goToForvard() {
@@ -190,11 +207,22 @@ final class RegistrationView: UIView {
         
         self.addSubview(button)
         NSLayoutConstraint.activate([
-            self.button.topAnchor.constraint(equalTo: self.passwordView2.bottomAnchor, constant: 30),
+            self.button.topAnchor.constraint(equalTo: self.passwordView2.bottomAnchor, constant: 70),
             self.button.leadingAnchor.constraint(equalTo: self.passwordView2.leadingAnchor, constant: 60),
             self.button.trailingAnchor.constraint(equalTo: self.passwordView2.trailingAnchor, constant: -60),
             self.button.heightAnchor.constraint(equalToConstant: 40),
             self.button.widthAnchor.constraint(equalToConstant: 150)
         ])
+        
+        self.addSubview(haveAccountbutton)
+        NSLayoutConstraint.activate([
+            self.haveAccountbutton.topAnchor.constraint(equalTo: self.passwordView2.bottomAnchor, constant: 10),
+            self.haveAccountbutton.leadingAnchor.constraint(equalTo: self.passwordView2.leadingAnchor, constant: 10),
+            //self.NoAccountbutton.trailingAnchor.constraint(equalTo: self.passwordView2.trailingAnchor, constant: -60),
+            self.haveAccountbutton.heightAnchor.constraint(equalToConstant: 30),
+            self.haveAccountbutton.widthAnchor.constraint(equalToConstant: 120)
+        ])
+        
+        
     }
 }

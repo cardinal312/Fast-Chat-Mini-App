@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol LoginViewDelegate: AnyObject {
+    func moveToReggVC()
     func goToTabbar()
 }
 
@@ -19,9 +20,9 @@ class LoginView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Bradley Hand", size: 30)
+        label.font = UIFont(name: "Bradley Hand", size: 20)
         label.textAlignment = .center
-        label.text = "LOGIN VC"
+        label.text = "ДОБРО ПОЖАЛОВАТЬ"
         label.textColor = .white
         return label
     }()
@@ -39,7 +40,7 @@ class LoginView: UIView {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.textColor = .systemRed
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -57,7 +58,7 @@ class LoginView: UIView {
         textfield.textColor = .systemRed
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
-        textfield.attributedPlaceholder = NSAttributedString(string: "dsfafargar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.attributedPlaceholder = NSAttributedString(string: "пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textfield
     }()
     
@@ -74,9 +75,24 @@ class LoginView: UIView {
         return button
     }()
     
+    
+    private lazy var noAccountbutton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("нет аккаунда?", for: .normal)
+        button.backgroundColor = .clear
+        button.titleLabel?.font = UIFont(name: "Bonodi Ornaments", size: 7)
+        button.titleLabel?.textColor = .white
+        button.addTarget(self, action: #selector(goToRegistrVC), for: .touchUpInside)
+        return button
+    }()
+    
 
+    @objc private func goToRegistrVC() {
+        self.delegate?.moveToReggVC()
+    }
+    
     @objc private func goToForvard() {
-        
         self.delegate?.goToTabbar()
     }
     
@@ -114,7 +130,7 @@ override func layoutSubviews() {
         
         self.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
+            self.titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
             self.titleLabel.widthAnchor.constraint(equalToConstant: 280),
@@ -158,11 +174,20 @@ override func layoutSubviews() {
         
         self.addSubview(button)
         NSLayoutConstraint.activate([
-            self.button.topAnchor.constraint(equalTo: self.passwordView.bottomAnchor, constant: 30),
+            self.button.topAnchor.constraint(equalTo: self.passwordView.bottomAnchor, constant: 60),
             self.button.leadingAnchor.constraint(equalTo: self.passwordView.leadingAnchor, constant: 60),
             self.button.trailingAnchor.constraint(equalTo: self.passwordView.trailingAnchor, constant: -60),
             self.button.heightAnchor.constraint(equalToConstant: 40),
             self.button.widthAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        self.addSubview(noAccountbutton)
+        NSLayoutConstraint.activate([
+            self.noAccountbutton.topAnchor.constraint(equalTo: self.passwordView.bottomAnchor, constant: 10),
+            self.noAccountbutton.leadingAnchor.constraint(equalTo: self.passwordView.leadingAnchor, constant: 10),
+            //self.NoAccountbutton.trailingAnchor.constraint(equalTo: self.passwordView2.trailingAnchor, constant: -60),
+            self.noAccountbutton.heightAnchor.constraint(equalToConstant: 30),
+            self.noAccountbutton.widthAnchor.constraint(equalToConstant: 120)
         ])
         
     }

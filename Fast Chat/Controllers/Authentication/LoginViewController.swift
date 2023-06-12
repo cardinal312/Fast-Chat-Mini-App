@@ -22,7 +22,14 @@ class LoginViewController: UIViewController {
         view.addGestureRecognizer(viewTapGesture)
         
         self.regView.delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .remove, style: .plain, target: self, action: #selector(goToStartVC))
     }
+    
+    @objc private func goToStartVC() {
+        navigationController?.pushViewController(StartViewController(), animated: true)
+    }
+    
     
     @objc private func viewEndEdition(sender: UIGestureRecognizer) {
         self.view.endEditing(true)
@@ -40,6 +47,10 @@ class LoginViewController: UIViewController {
 
 
 extension LoginViewController: LoginViewDelegate {
+    
+    func moveToReggVC() {
+        navigationController?.pushViewController(RegViewController(), animated: true)
+    }
     
     func goToTabbar() {
         print("Login view controller delegate tapped")

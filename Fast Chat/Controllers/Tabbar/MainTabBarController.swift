@@ -37,6 +37,7 @@ class MainTabBarController: UITabBarController {
         nav.tabBarItem.image = image
         nav.viewControllers.first?.navigationItem.title = title + " Controller"
         nav.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Button", style: .plain, target: nil, action: nil)
+        nav.viewControllers.first?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Button", style: .done, target: nil, action: nil)
         return nav
     }
     
