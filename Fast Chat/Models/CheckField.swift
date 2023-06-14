@@ -15,7 +15,7 @@ class CheckField{
         case "e":
             dataRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         default:
-            dataRegEx = "(?=.*[A-Z0-9a-z]).{6,}"
+            dataRegEx = "(?=.*[A-Z0-9a-z]).{4,}"
         }
         let dataPred = NSPredicate(format:"SELF MATCHES %@", dataRegEx)
         return dataPred.evaluate(with: data)

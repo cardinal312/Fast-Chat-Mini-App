@@ -6,9 +6,8 @@
 //
 
 import UIKit
+
 class StartViewController: UIViewController {
-    
-    
     
     //MARK: - Data
     
@@ -40,7 +39,7 @@ class StartViewController: UIViewController {
         
         //dump(UIFont.familyNames)
         
-        
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     
@@ -103,7 +102,6 @@ extension StartViewController: CustomCollectionViewCellProtocol {
     func moveToLoginVC() {
         navigationController?.pushViewController(LoginViewController(), animated: true)
         print("Go to Login button pressed! 😄🔥")
-        //navigationController?.pushViewController(MainTabBarController(), animated: true)
     }
 
 }

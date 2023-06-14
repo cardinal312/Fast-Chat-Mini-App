@@ -28,42 +28,45 @@ final class RegistrationView: UIView {
     }()
     
     
-    private lazy var emailView: UIView = {
+     lazy var emailView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.restorationIdentifier = "name"
         return view
     }()
     
-    private lazy var emailTextField: UITextField = {
+     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.textColor = .systemRed
+        textfield.textColor = .black
         textfield.textAlignment = .left
         textfield.attributedPlaceholder = NSAttributedString(string: "Email:", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.restorationIdentifier = "emailTextField"
         return textfield
     }()
     
     
-    private lazy var passwordView1: UIView = {
+     lazy var passwordView1: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
     }()
     
-    private lazy var passwordView1TextField: UITextField = {
+     lazy var passwordView1TextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.textColor = .systemRed
+        textfield.textColor = .black
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
         textfield.attributedPlaceholder = NSAttributedString(string: "пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.restorationIdentifier = "password"
         return textfield
     }()
     
     
-    private lazy var passwordView2: UIView = {
+     lazy var passwordView2: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -71,13 +74,14 @@ final class RegistrationView: UIView {
     }()
     
     
-    private lazy var passwordView2TextField: UITextField = {
+     lazy var passwordView2TextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.textColor = .systemRed
+        textfield.textColor = .black
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
         textfield.attributedPlaceholder = NSAttributedString(string: "повторить пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.restorationIdentifier = "passwordView2TextField"
         return textfield
     }()
     

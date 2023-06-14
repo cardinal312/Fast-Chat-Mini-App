@@ -9,21 +9,23 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    private var regView: LoginView { return self.view as! LoginView }
+    private var logView: LoginView { return self.view as! LoginView }
+    private var checkField = CheckField.shared
+    
     private let viewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Login View Controller"
-        //view.backgroundColor = .systemIndigo
         
         viewTapGesture.addTarget(self, action: #selector(viewEndEdition(sender:)))
         view.addGestureRecognizer(viewTapGesture)
         
-        self.regView.delegate = self
+        self.logView.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .remove, style: .plain, target: self, action: #selector(goToStartVC))
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     @objc private func goToStartVC() {
@@ -42,7 +44,7 @@ class LoginViewController: UIViewController {
         
         self.view = LoginView(frame: UIScreen.main.bounds)
     }
-
+    
 }
 
 
@@ -54,8 +56,12 @@ extension LoginViewController: LoginViewDelegate {
     
     func goToTabbar() {
         print("Login view controller delegate tapped")
-        navigationController?.pushViewController(MainTabBarController(), animated: true)
+        
+        if checkField.validField(logView.emailView, logView.emailTextField),
+           checkField.validField(logView.passwordView, logView.passwordViewTextField)
+            
+        {
+            
+        }
     }
-    
-    
 }

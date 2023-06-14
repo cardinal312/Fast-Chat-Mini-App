@@ -20,7 +20,7 @@ class LoginView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Bradley Hand", size: 20)
+        label.font = UIFont(name: "Bradley Hand", size: 27)
         label.textAlignment = .center
         label.text = "ДОБРО ПОЖАЛОВАТЬ"
         label.textColor = .white
@@ -28,37 +28,39 @@ class LoginView: UIView {
     }()
     
     
-    private lazy var emailView: UIView = {
+     lazy var emailView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
     }()
     
-    private lazy var emailTextField: UITextField = {
+     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.textColor = .systemRed
+        textfield.textColor = .black
         textfield.textAlignment = .left
         textfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.restorationIdentifier = "emailTextField"
         return textfield
     }()
     
     
-    private lazy var passwordView: UIView = {
+     lazy var passwordView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
     }()
     
-    private lazy var passwordViewTextField: UITextField = {
+     lazy var passwordViewTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.textColor = .systemRed
+        textfield.textColor = .black
         textfield.isSecureTextEntry = true
         textfield.textAlignment = .left
         textfield.attributedPlaceholder = NSAttributedString(string: "пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textfield.restorationIdentifier = "password"
         return textfield
     }()
     
@@ -131,8 +133,8 @@ override func layoutSubviews() {
         self.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             self.titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
+            self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
             self.titleLabel.widthAnchor.constraint(equalToConstant: 280),
             self.titleLabel.heightAnchor.constraint(equalToConstant: 50)
         ])

@@ -15,7 +15,7 @@
 		FA2736CE2A373F430011CD23 /* CheckField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2736CD2A373F420011CD23 /* CheckField.swift */; };
 		FA32E3CA2A34495500A47780 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3C92A34495500A47780 /* StartViewController.swift */; };
 		FA32E3CC2A3449BD00A47780 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CB2A3449BD00A47780 /* CustomCollectionViewCell.swift */; };
-		FA32E3CE2A344A2D00A47780 /* Slides.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CD2A344A2D00A47780 /* Slides.swift */; };
+		FA32E3CE2A344A2D00A47780 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CD2A344A2D00A47780 /* Models.swift */; };
 		FA32E3D02A344B6800A47780 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CF2A344B6800A47780 /* RegViewController.swift */; };
 		FA32E3D22A344BA200A47780 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3D12A344BA200A47780 /* LoginViewController.swift */; };
 		FA78F5762A37483C007CD917 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA78F5752A37483C007CD917 /* GoogleService-Info.plist */; };
@@ -26,6 +26,7 @@
 		FACFB2CA2A370DE300997ABD /* UIColor + Entension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */; };
 		FACFB2CC2A370E6D00997ABD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2CB2A370E6D00997ABD /* Colors.swift */; };
 		FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */; };
+		FAED05482A39C33C00E6C8C2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAED05472A39C33C00E6C8C2 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +42,7 @@
 		FA2736CD2A373F420011CD23 /* CheckField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckField.swift; sourceTree = "<group>"; };
 		FA32E3C92A34495500A47780 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		FA32E3CB2A3449BD00A47780 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		FA32E3CD2A344A2D00A47780 /* Slides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slides.swift; sourceTree = "<group>"; };
+		FA32E3CD2A344A2D00A47780 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		FA32E3CF2A344B6800A47780 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		FA32E3D12A344BA200A47780 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA78F5752A37483C007CD917 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Entension.swift"; sourceTree = "<group>"; };
 		FACFB2CB2A370E6D00997ABD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		FAED05472A39C33C00E6C8C2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 				EAF3BC984201B7EB087B3D37 /* Pods-Fast Chat.debug.xcconfig */,
 				B5F2B4E9B55C5B013CC945CC /* Pods-Fast Chat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -158,8 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				FA32E3CB2A3449BD00A47780 /* CustomCollectionViewCell.swift */,
-				FA32E3CD2A344A2D00A47780 /* Slides.swift */,
+				FA32E3CD2A344A2D00A47780 /* Models.swift */,
 				FA2736CD2A373F420011CD23 /* CheckField.swift */,
+				FAED05472A39C33C00E6C8C2 /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,9 +335,10 @@
 				FACFB2BF2A36FD5B00997ABD /* LoginView.swift in Sources */,
 				FA2736CE2A373F430011CD23 /* CheckField.swift in Sources */,
 				FA07DC1B2A33AAE200541EE3 /* AppDelegate.swift in Sources */,
+				FAED05482A39C33C00E6C8C2 /* NetworkService.swift in Sources */,
 				FA07DC1D2A33AAE200541EE3 /* SceneDelegate.swift in Sources */,
 				FA32E3CC2A3449BD00A47780 /* CustomCollectionViewCell.swift in Sources */,
-				FA32E3CE2A344A2D00A47780 /* Slides.swift in Sources */,
+				FA32E3CE2A344A2D00A47780 /* Models.swift in Sources */,
 				FACFB2C72A3701D500997ABD /* ChatsViewController.swift in Sources */,
 				FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */,
 			);
