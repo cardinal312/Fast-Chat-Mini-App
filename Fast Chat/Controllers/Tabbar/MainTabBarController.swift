@@ -48,7 +48,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private func configureTabbar() {
         
         let userVC = self.createNav(with: "Users", and: UIImage(systemName: "person"), vs: UsersViewController())
-        let chatVC = self.createNav(with: "Chats", and: UIImage(systemName: "message"), vs: ChatsViewController())
+        let chatVC = self.createNav(with: "Chats", and: UIImage(systemName: "message"), vs: MessageListController())
         
         self.setViewControllers([userVC, chatVC], animated: true)
     }
@@ -59,7 +59,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let nav = UINavigationController(rootViewController: vs)
         nav.navigationItem.title = title
         nav.tabBarItem.image = image
-        nav.viewControllers.first?.navigationItem.title = title + " Controller"
+        nav.viewControllers.first?.navigationItem.title = title// + " Controller"
         nav.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Button", style: .done, target: self, action: #selector(goToRootVc(sender:)))
         nav.viewControllers.first?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Button", style: .done, target: nil, action: nil)
         
@@ -70,7 +70,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     @objc private func goToRootVc(sender: UIButton) {
-        
+        print("Tabbar right button tapped 1 vs")
         navigationController?.pushViewController(StartViewController(), animated: true)
     }
     //    override func willMove(toParent parent: UIViewController?) {

@@ -7,7 +7,7 @@ target 'Fast Chat' do
 
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
-
+pod 'MessageKit'
   # Pods for Fast Chat
 
 end

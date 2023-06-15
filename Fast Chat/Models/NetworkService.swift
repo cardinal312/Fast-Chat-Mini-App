@@ -64,13 +64,63 @@ class NetworkService {
     }
     
     
+    func getAllUsers(complition: @escaping ([String]) -> ()) {
+        Firestore.firestore().collection("users").getDocuments { [weak self] snap, error in
+            if error == nil {
+                var emailList = [String]()
+                if let docs = snap?.documents {
+                    for doc in docs {
+                        let data = doc.data()
+                        let email = data["email"] as? String
+                        emailList.append(email ?? "fuck you ****")
+                    }
+                }
+                complition(emailList)
+            }
+        }
+    }
     
     
+    //MARK: - Messanger
     
+    func sendMessage(otherID: String, converID: String, message: Message, text: String, complition: @escaping (Bool) -> ()) {
+        if converID == nil {
+            //create new chats dialog
+            
+        } else {
+            // chat dialog haved
+            let msg: [String: Any] = [
+                "date": Date(),
+                "sender": message.sender.senderId,
+                "text": text ]
+            
+            Firestore.firestore().collection("conversations").document(converID).collection("messages").addDocument(data: msg) { error in
+                if error == nil {
+                    complition(true)
+                } else {
+                    complition(false)
+                }
+                
+            }
+        }
+    }
     
+    func updateConver() {
+        
+    }
     
+    func getConvoID() {
+        
+    }
     
+    func getAllMessages() {
+        
+    }
     
+    func getOneMessage() {
+        
+        
+    }
     
 }
 
