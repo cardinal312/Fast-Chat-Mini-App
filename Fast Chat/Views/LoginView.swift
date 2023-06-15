@@ -41,7 +41,7 @@ class LoginView: UIView {
         textfield.textColor = .black
         textfield.textAlignment = .left
         textfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        textfield.restorationIdentifier = "emailTextField"
+        textfield.restorationIdentifier = "email"
         return textfield
     }()
     

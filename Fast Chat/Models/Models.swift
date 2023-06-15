@@ -13,6 +13,11 @@ struct Slides {
 }
 
 
+enum AuthResponse {
+    case success, noVerify, error
+}
+
+
 struct LoginField {
     var email: String
     var password: String

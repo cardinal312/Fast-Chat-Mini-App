@@ -14,14 +14,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-       
+        
+        //userDefaults.set(false, forKey: "isLogin")
+        let isLogin = userDefaults.object(forKey: "isLogin") as? Bool ?? false
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: StartViewController())
-        window?.makeKeyAndVisible()
+        
+        if isLogin {
+            startTabbar()
+        } else {
+            startLogin()
+        }
+        
     }
+    
+    
+    
+    func startTabbar() {
+        self.window?.rootViewController = MainTabBarController()
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func startLogin() {
+        self.window?.rootViewController = UINavigationController(rootViewController: StartViewController())
+        self.window?.makeKeyAndVisible()
+    }
+    
 }
+
+
+
 
 //UINavigationController(rootViewController: StartViewController())
 
 
+//window?.rootViewController = UINavigationController(rootViewController: StartViewController())
+//window?.makeKeyAndVisible()

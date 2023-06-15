@@ -6,7 +6,7 @@
 //
 import Firebase
 import FirebaseAuth
-//import FirebaseFirestore
+import FirebaseFirestore
 
 class NetworkService {
     static let shared = NetworkService()
@@ -19,8 +19,14 @@ class NetworkService {
         Auth.auth().createUser(withEmail: data.email, password: data.password) { [weak self] result, err in
             if err == nil {
                 if result != nil {
-               //     let userID = result?.user.uid
-            
+                    
+                    let userID = result?.user.uid
+                    let email = data.email
+                    let data: [String: Any] = ["email": email]
+                    
+                    Firestore.firestore().collection("users").document(userID!).setData(data)
+                    
+                    
                     complition(ResponseCode(code: 1))
                 }
                 
@@ -31,11 +37,40 @@ class NetworkService {
     }
     
     func confirmEmail() {
-        Auth.auth().currentUser?.sendEmailVerification(completion: { error in
+        Auth.auth().currentUser?.sendEmailVerification(completion: { [weak self] error in
             if error != nil {
                 print(error?.localizedDescription)
             }
         })
     }
+    
+    
+    
+    func authInApp(_ data: LoginField, complition: @escaping (AuthResponse) -> ()) {
+        Auth.auth().signIn(withEmail: data.email, password: data.password) { [weak self] result, error in
+            if error != nil {
+                complition(.error)
+            } else {
+                if let result = result {
+                    if result.user.isEmailVerified {
+                        complition(.success)
+                    } else {
+                        self?.confirmEmail()
+                        complition(.noVerify)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 

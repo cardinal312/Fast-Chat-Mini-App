@@ -81,6 +81,8 @@ extension RegViewController: RegistrationViewProtocol {
                         let action = UIAlertAction(title: "OK", style: .cancel)
                         alert.addAction(action)
                         self?.present(alert, animated: true)
+                        
+                        //navigation root vc
                     default:
                         print("Unknowned error, may be in self code")
                     }

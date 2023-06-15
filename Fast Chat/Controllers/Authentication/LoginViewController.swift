@@ -9,8 +9,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    private var userDefaults = UserDefaults.standard
     private var logView: LoginView { return self.view as! LoginView }
     private var checkField = CheckField.shared
+    private var service = NetworkService.shared
     
     private let viewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
@@ -40,8 +42,6 @@ class LoginViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
-        
         self.view = LoginView(frame: UIScreen.main.bounds)
     }
     
@@ -58,10 +58,48 @@ extension LoginViewController: LoginViewDelegate {
         print("Login view controller delegate tapped")
         
         if checkField.validField(logView.emailView, logView.emailTextField),
-           checkField.validField(logView.passwordView, logView.passwordViewTextField)
+           checkField.validField(logView.passwordView, logView.passwordViewTextField) {
             
-        {
-            
+            service.authInApp(LoginField(email: logView.emailTextField.text!, password: logView.passwordViewTextField.text!)) { [weak self] response in
+                
+                switch response {
+                    
+                case .success:
+                    print("next next next")
+                    
+                    self?.userDefaults.set(true, forKey: "isLogin") //MARK: USER DEFAULTS
+                    if ((self?.userDefaults.object(forKey: "isLogin")) != nil) {
+                        self?.navigationController?.pushViewController(MainTabBarController(), animated: true)
+                    }
+                case .noVerify:
+                    let alert = self?.alertCreate("Error", "You are not verify your email, to your inbox sent link of registration")
+                    let action = UIAlertAction(title: "OK", style: .cancel)
+                    alert?.addAction(action)
+                    self?.present(alert!, animated: true)
+                case .error:
+                    let alert = self?.alertCreate("Error", "Email or password still not iquals")
+                    let action = UIAlertAction(title: "OK", style: .cancel)
+                    alert?.addAction(action)
+                    self?.present(alert!, animated: true)
+                    
+                }
+            }
+        }
+        else {
+            let alert = self.alertCreate("Error", "Please try check your written data again")
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
         }
     }
+    
+    func alertCreate(_ title: String, _ message: String?) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        return alert
+    }
+    
+    
+    
+    
 }
