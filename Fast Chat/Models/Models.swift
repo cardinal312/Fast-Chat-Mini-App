@@ -27,3 +27,15 @@ struct LoginField {
 struct ResponseCode {
     var code: Int
 }
+
+
+struct CurrentUser {
+    
+    var id: String
+    var email: String
+
+    
+    // gender
+    // avatar
+    // t.d.
+}

@@ -22,15 +22,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         //self.tabBar.barTintColor = .black
         //  self.navigationItem.setHidesBackButton(true, animated: true)
         //
-        self.navigationController?.isNavigationBarHidden = true
+   //     self.navigationController?.isNavigationBarHidden = true
         self.delegate = self
         
         UINavigationBar.appearance().barTintColor = Colors.gold
         UINavigationBar.appearance().tintColor = Colors.gold
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         // UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
+   //     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+  //      UINavigationBar.appearance().shadowImage = UIImage()
         
         
         
@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+  //      self.navigationController?.isNavigationBarHidden = true
         
         
     }
@@ -50,7 +50,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let userVC = self.createNav(with: "Users", and: UIImage(systemName: "person"), vs: UsersViewController())
         let chatVC = self.createNav(with: "Chats", and: UIImage(systemName: "message"), vs: MessageListController())
         
-        self.setViewControllers([userVC, chatVC], animated: true)
+        self.setViewControllers([userVC, chatVC], animated: true) // + , chatVC
     }
     
     // MARK: CREATE NAV BAR
@@ -73,9 +73,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         print("Tabbar right button tapped 1 vs")
         navigationController?.pushViewController(StartViewController(), animated: true)
     }
-    //    override func willMove(toParent parent: UIViewController?) {
-    //        navigationController?.navigationBar.barTintColor = UIColor.black
-    //        navigationController?.navigationBar.tintColor = UIColor.black
-    //    }
+        override func willMove(toParent parent: UIViewController?) {
+            navigationController?.navigationBar.barTintColor = UIColor.black
+            navigationController?.navigationBar.tintColor = UIColor.black
+        }
     
 }

@@ -66,7 +66,7 @@ class MessageListController: UIViewController {
             cell.backgroundColor = .systemGray2
          //   cell.layer.cornerRadius = 12
             cell.selectionStyle = .blue
-            cell.textLabel?.text = "Simple cell"
+            cell.textLabel?.text = "Jony"
 
             return cell
         }
@@ -80,8 +80,8 @@ class MessageListController: UIViewController {
             
             // id of conversations
             let vc = ChatViewController()
-            vc.chatID = "first_chat_id"
-            vc.otherID = "DZYNiUFxj6X8XwLMssepq3nK7Xy1"
+        //    vc.chatID = "first_chat_id"
+         //   vc.otherId = "DZYNiUFxj6X8XwLMssepq3nK7Xy1"        // DZYNiUFxj6X8XwLMssepq3nK7Xy1 me
             navigationController?.pushViewController(vc, animated: false)
         }
         

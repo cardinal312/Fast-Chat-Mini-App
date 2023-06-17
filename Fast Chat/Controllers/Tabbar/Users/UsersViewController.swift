@@ -10,7 +10,7 @@ import UIKit
 class UsersViewController: UIViewController {
     
     private var servise = NetworkService.shared
-    private var userArray = [String]()
+    private var userArray = [CurrentUser]()
     
     
     private lazy var tableView: UITableView = {
@@ -26,12 +26,14 @@ class UsersViewController: UIViewController {
         tb.delegate = self
         tb.dataSource = self
         tb.showsVerticalScrollIndicator = false
+
         return tb
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
+        title = "Users"
         
         tableViewConfigure()
         getDataFromDataBase()
@@ -74,17 +76,25 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = .systemIndigo
         cell.layer.cornerRadius = 12
         cell.selectionStyle = .none
-        
-        
-        cell.cellSetValues(userArray[indexPath.section])
+    //    cell.hz()
+        let cellname = userArray[indexPath.row]
+        cell.cellSetValues(cellname.email)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 112.5
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let userId = userArray[indexPath.row].id
+        
+        let vc = ChatViewController()
+        vc.otherId = userId
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
         
     }
     

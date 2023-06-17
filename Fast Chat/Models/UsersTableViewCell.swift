@@ -11,7 +11,7 @@ import UIKit
 class UsersTableViewCell: UITableViewCell {
     
     static let id = "UsersTableViewCell"
-
+    
     private lazy var underView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -20,12 +20,12 @@ class UsersTableViewCell: UITableViewCell {
         return view
     }()
     
-        lazy var usersImageView: UIImageView = {
-            let iv = UIImageView(frame: .zero)
-            iv.translatesAutoresizingMaskIntoConstraints = false
+    lazy var usersImageView: UIImageView = {
+        let iv = UIImageView(frame: .zero)
+        iv.translatesAutoresizingMaskIntoConstraints = false
         //    iv.contentMode = .scaleAspectFit
-            iv.image = UIImage(named: "image2") ?? UIImage(systemName: "bell")
-            iv.layer.cornerRadius = iv.frame.width / 2
+        iv.image = UIImage(named: "image2") ?? UIImage(systemName: "bell")
+ 
         return iv
     }()
     
@@ -48,7 +48,7 @@ class UsersTableViewCell: UITableViewCell {
         
         
         setupCell()
-
+        hz()
     }
     
     required init?(coder: NSCoder) {
@@ -58,14 +58,19 @@ class UsersTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+      //  hz()
         
-        self.usersImageView.layer.cornerRadius = self.frame.width / 2
-        self.usersImageView.layer.borderWidth = 1
-        self.usersImageView.layer.borderColor = UIColor.red.cgColor
         
         self.underView.layer.cornerRadius = 12
     }
     
+    
+    func hz() {
+        self.usersLabel.clipsToBounds = true
+        self.usersImageView.layer.cornerRadius = usersImageView.frame.width / 2
+        self.usersImageView.layer.borderWidth = 1
+        self.usersImageView.layer.borderColor = UIColor.red.cgColor
+    }
     
     func cellSetValues(_ email: String) {
         self.usersLabel.text = email
@@ -75,18 +80,18 @@ class UsersTableViewCell: UITableViewCell {
     private func setupCell() {
         self.contentView.addSubview(underView)
         NSLayoutConstraint.activate([
-            self.underView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 2),
+            self.underView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 7),
             self.underView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5),
             self.underView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5),
-            self.underView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -2)
+            self.underView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -7)
         ])
         
         self.underView.addSubview(usersImageView)
         NSLayoutConstraint.activate([
-            self.usersImageView.topAnchor.constraint(equalTo: self.underView.topAnchor, constant: 10),
-            self.usersImageView.leadingAnchor.constraint(equalTo: self.underView.leadingAnchor, constant: 15),
-            self.usersImageView.bottomAnchor.constraint(equalTo: self.underView.bottomAnchor, constant: -10),
-    //        self.usersImageView.heightAnchor.constraint(equalToConstant: 90),
+          //  self.usersImageView.topAnchor.constraint(equalTo: self.underView.topAnchor, constant: 10),
+            self.usersImageView.leadingAnchor.constraint(equalTo: self.underView.leadingAnchor, constant: 20),
+        //    self.usersImageView.bottomAnchor.constraint(equalTo: self.underView.bottomAnchor, constant: -10),
+                    self.usersImageView.heightAnchor.constraint(equalToConstant: 90),
             self.usersImageView.widthAnchor.constraint(equalToConstant: 90),
             self.usersImageView.centerYAnchor.constraint(equalTo: self.underView.centerYAnchor)
         ])
@@ -94,8 +99,8 @@ class UsersTableViewCell: UITableViewCell {
         self.underView.addSubview(usersLabel)
         NSLayoutConstraint.activate([
             self.usersLabel.centerYAnchor.constraint(equalTo: self.underView.centerYAnchor),
-        //    self.usersLabel.centerXAnchor.constraint(equalTo: self.underView.centerXAnchor),
-            self.usersLabel.leadingAnchor.constraint(equalTo: self.usersImageView.trailingAnchor, constant: 30)
+            //    self.usersLabel.centerXAnchor.constraint(equalTo: self.underView.centerXAnchor),
+            self.usersLabel.trailingAnchor.constraint(equalTo: self.underView.trailingAnchor, constant: -100)
             
         ])
     }
