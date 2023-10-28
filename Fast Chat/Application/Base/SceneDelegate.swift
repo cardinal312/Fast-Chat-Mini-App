@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var userDefaults = UserDefaults.standard
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
       //  userDefaults.set(false, forKey: "isLogin")
@@ -26,11 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             startLogin()
         }
-        
     }
-    
-    
-    
+
     func startTabbar() {
         self.window?.rootViewController = MainTabBarController()
         self.window?.makeKeyAndVisible()
@@ -43,11 +39,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 }
 
-
-
-
-//UINavigationController(rootViewController: StartViewController())
-
-
-//window?.rootViewController = UINavigationController(rootViewController: StartViewController())
-//window?.makeKeyAndVisible()

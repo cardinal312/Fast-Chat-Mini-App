@@ -6,10 +6,10 @@ import UIKit
 class CheckField{
     
     static let shared = CheckField()
-    init() { }
+    init() {}
     
     //isValid
-    private func isValid(_ type: String, _ data: String) -> Bool{
+    private func isValid(_ type: String, _ data: String) -> Bool {
         var dataRegEx = ""
         switch type {
         case "e":
@@ -22,12 +22,12 @@ class CheckField{
     }
     
     //validField
-    func validField(_ parentView: UIView, _ field: UITextField) -> Bool{
+    func validField(_ parentView: UIView, _ field: UITextField) -> Bool {
         let id = field.restorationIdentifier
         
         switch id {
         case "name":
-            if field.text?.count ?? 0 < 3{
+            if field.text?.count ?? 0 < 3 {
                 validView(parentView, field, false)
                 return false
             } else {
@@ -51,7 +51,7 @@ class CheckField{
                 return false
             }
         default:
-            if field.text?.count ?? 0 < 2{
+            if field.text?.count ?? 0 < 2 {
                 validView(parentView, field, false)
                 return false
             } else {
@@ -62,8 +62,8 @@ class CheckField{
     }
     
     //valid view
-    private func validView(_ parentView: UIView, _ field: UITextField, _ valid: Bool){
-        if valid{
+    private func validView(_ parentView: UIView, _ field: UITextField, _ valid: Bool) {
+        if valid {
             field.backgroundColor = #colorLiteral(red: 0.9410838485, green: 0.9412415624, blue: 0.9410631061, alpha: 1)
             parentView.backgroundColor = #colorLiteral(red: 0.9410838485, green: 0.9412415624, blue: 0.9410631061, alpha: 1)
 

@@ -25,21 +25,19 @@ struct Message: MessageType {
     var kind: MessageKind
 }
 
-
-class ChatViewController: MessagesViewController {
+class ConversationViewController: MessagesViewController {
     
     var chatID: String?
     var otherId: String?
-    let service = NetworkService.shared
+    private let service = NetworkService.shared
     let selfSender = Sender(senderId: "1", displayName: "")
     let otherSender = Sender(senderId: "2", displayName: "")
-    
     
     private var messages = [Message]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //     navigationController?.isNavigationBarHidden = false
+        //navigationController?.isNavigationBarHidden = false
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -47,7 +45,6 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         showMessageTimestampOnSwipeLeft = true
         messagesCollectionView.clipsToBounds = true
-        //self.navigationItem.setHidesBackButton(true, animated: true)
         
         // if chatid == nil? , to do search
         
@@ -57,16 +54,12 @@ class ChatViewController: MessagesViewController {
                 self?.getMessages(convoId: chatId)
             }
         }
-            
-        
-        
     }
 }
 
-
 //MARK: - Protocols
 
-extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate, MessagesDataSource {
+extension ConversationViewController: MessagesDisplayDelegate, MessagesLayoutDelegate, MessagesDataSource {
     
     func currentSender() -> MessageKit.SenderType {
         return selfSender
@@ -80,39 +73,27 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate, M
         messages.count
     }
     
-    
     func getMessages(convoId: String) {
         service.getAllMessages(chatId: convoId) { [weak self] messages in
             self?.messages = messages
-            
             DispatchQueue.main.async {
                 self?.messagesCollectionView.reloadDataAndKeepOffset()
             }
-            
-                
         }
     }
-    
-    
 }
 
-extension ChatViewController: InputBarAccessoryViewDelegate {
+extension ConversationViewController: InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        
         let msg = Message(sender: selfSender, messageId: "", sentDate: Date(), kind: .text(text))
-        
         messages.append(msg)
-        
         service.sendMessage(otherId: self.otherId!, convoId: self.chatID, text: text) { [weak self] convoId in
-            
             DispatchQueue.main.async {
                 inputBar.inputTextView.text = nil
                 self?.messagesCollectionView.reloadDataAndKeepOffset()
             }
-            
             self?.chatID = convoId
         }
     }
 }
-

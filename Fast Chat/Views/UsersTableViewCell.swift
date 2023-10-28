@@ -15,16 +15,20 @@ class UsersTableViewCell: UITableViewCell {
     private lazy var underView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemIndigo
+        view.backgroundColor = UIColor.gray//Helpers.Styles.Colors.purple
+        view.clipsToBounds = true
         
         return view
     }()
     
     lazy var usersImageView: UIImageView = {
-        let iv = UIImageView(frame: .zero)
+        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        //    iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(named: "image2") ?? UIImage(systemName: "bell")
+        iv.backgroundColor = .systemBackground
+        iv.clipsToBounds = true
+        iv.layer.masksToBounds = true
+        iv.contentMode = .scaleAspectFill
+        iv.image = UIImage(systemName: "logo") ?? UIImage(systemName: "person")
  
         return iv
     }()
@@ -35,72 +39,67 @@ class UsersTableViewCell: UITableViewCell {
         label.text = "Custom cell"
         label.textColor = .black
         label.textAlignment = .left
-        label.font = UIFont(name: "Avenir", size: 18)
+        label.font = .boldSystemFont(ofSize: 20)
+        label.clipsToBounds = true
         
         return label
     }()
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        
-        
         setupCell()
-        hz()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-      //  hz()
-        
+
+        clipsToBounds = true
+        contentView.backgroundColor = .systemBackground
+        layer.cornerRadius = 12
         
         self.underView.layer.cornerRadius = 12
-    }
-    
-    
-    func hz() {
-        self.usersLabel.clipsToBounds = true
+        self.underView.layer.borderWidth = 0.5
+        self.underView.layer.borderColor = UIColor.black.cgColor
+        
+        
         self.usersImageView.layer.cornerRadius = usersImageView.frame.width / 2
-        self.usersImageView.layer.borderWidth = 1
-        self.usersImageView.layer.borderColor = UIColor.red.cgColor
+        self.usersImageView.layer.borderWidth = 2
+        self.usersImageView.layer.borderColor = UIColor.black.cgColor
+        
+        
     }
     
-    func cellSetValues(_ email: String) {
-        self.usersLabel.text = email
+    
+    func cellSetValues(_ userDB: CurrentUser) {
+        self.usersLabel.text = userDB.email
+        self.usersImageView.image = UIImage(systemName: userDB.avatar) ?? UIImage(systemName: "person")
     }
     
     
     private func setupCell() {
         self.contentView.addSubview(underView)
         NSLayoutConstraint.activate([
-            self.underView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 7),
+            self.underView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5),
             self.underView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5),
             self.underView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5),
-            self.underView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -7)
+            self.underView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5)
         ])
         
         self.underView.addSubview(usersImageView)
         NSLayoutConstraint.activate([
-          //  self.usersImageView.topAnchor.constraint(equalTo: self.underView.topAnchor, constant: 10),
             self.usersImageView.leadingAnchor.constraint(equalTo: self.underView.leadingAnchor, constant: 20),
-        //    self.usersImageView.bottomAnchor.constraint(equalTo: self.underView.bottomAnchor, constant: -10),
-                    self.usersImageView.heightAnchor.constraint(equalToConstant: 90),
-            self.usersImageView.widthAnchor.constraint(equalToConstant: 90),
-            self.usersImageView.centerYAnchor.constraint(equalTo: self.underView.centerYAnchor)
+            self.usersImageView.centerYAnchor.constraint(equalTo: self.underView.centerYAnchor),
+            self.usersImageView.heightAnchor.constraint(equalToConstant: 90),
+            self.usersImageView.widthAnchor.constraint(equalToConstant: 90)
         ])
         
         self.underView.addSubview(usersLabel)
         NSLayoutConstraint.activate([
             self.usersLabel.centerYAnchor.constraint(equalTo: self.underView.centerYAnchor),
-            //    self.usersLabel.centerXAnchor.constraint(equalTo: self.underView.centerXAnchor),
-            self.usersLabel.trailingAnchor.constraint(equalTo: self.underView.trailingAnchor, constant: -100)
+            self.usersLabel.leadingAnchor.constraint(equalTo: self.usersImageView.trailingAnchor, constant: 25)
             
         ])
     }

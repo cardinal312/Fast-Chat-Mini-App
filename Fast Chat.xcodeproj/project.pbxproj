@@ -20,13 +20,15 @@
 		FA32E3D02A344B6800A47780 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3CF2A344B6800A47780 /* RegViewController.swift */; };
 		FA32E3D22A344BA200A47780 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E3D12A344BA200A47780 /* LoginViewController.swift */; };
 		FA78F5762A37483C007CD917 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA78F5752A37483C007CD917 /* GoogleService-Info.plist */; };
-		FA8E6D732A3B569D0060BF5B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E6D722A3B569D0060BF5B /* ChatViewController.swift */; };
+		FA8E6D732A3B569D0060BF5B /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E6D722A3B569D0060BF5B /* ConversationViewController.swift */; };
+		FAAB92492AE8CD2500C1BECB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB92482AE8CD2500C1BECB /* SettingsViewController.swift */; };
+		FAAB924B2AE8CF6000C1BECB /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB924A2AE8CF6000C1BECB /* Helpers.swift */; };
+		FAAB924D2AE8D16900C1BECB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB924C2AE8D16900C1BECB /* SearchViewController.swift */; };
 		FACFB2BF2A36FD5B00997ABD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2BE2A36FD5B00997ABD /* LoginView.swift */; };
 		FACFB2C32A37012400997ABD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C22A37012400997ABD /* MainTabBarController.swift */; };
 		FACFB2C52A37018E00997ABD /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C42A37018E00997ABD /* UsersViewController.swift */; };
 		FACFB2C72A3701D500997ABD /* MessageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C62A3701D500997ABD /* MessageListController.swift */; };
 		FACFB2CA2A370DE300997ABD /* UIColor + Entension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */; };
-		FACFB2CC2A370E6D00997ABD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFB2CB2A370E6D00997ABD /* Colors.swift */; };
 		FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */; };
 		FAED05482A39C33C00E6C8C2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAED05472A39C33C00E6C8C2 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
@@ -49,13 +51,15 @@
 		FA32E3CF2A344B6800A47780 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		FA32E3D12A344BA200A47780 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA78F5752A37483C007CD917 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FA8E6D722A3B569D0060BF5B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		FA8E6D722A3B569D0060BF5B /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		FAAB92482AE8CD2500C1BECB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FAAB924A2AE8CF6000C1BECB /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		FAAB924C2AE8D16900C1BECB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FACFB2BE2A36FD5B00997ABD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FACFB2C22A37012400997ABD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FACFB2C42A37018E00997ABD /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		FACFB2C62A3701D500997ABD /* MessageListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListController.swift; sourceTree = "<group>"; };
 		FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Entension.swift"; sourceTree = "<group>"; };
-		FACFB2CB2A370E6D00997ABD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		FAED05472A39C33C00E6C8C2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				FA32E3C52A34489E00A47780 /* Application */,
-				FA32E3C62A3448C100A47780 /* Controllers */,
 				FA32E3C72A3448CD00A47780 /* Views */,
+				FA32E3C62A3448C100A47780 /* Controllers */,
 				FA32E3C82A3448DB00A47780 /* Models */,
 				FACFB2C02A3700B400997ABD /* Helpers */,
 				FA07DC2E2A33AEA500541EE3 /* SupportingFiles */,
@@ -135,24 +139,24 @@
 			isa = PBXGroup;
 			children = (
 				FACFB2C42A37018E00997ABD /* UsersViewController.swift */,
+				FA8E6D722A3B569D0060BF5B /* ConversationViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
 		};
-		FA2E4D542A3B08FC00F660F0 /* Chats */ = {
+		FA2E4D542A3B08FC00F660F0 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FACFB2C62A3701D500997ABD /* MessageListController.swift */,
-				FA8E6D722A3B569D0060BF5B /* ChatViewController.swift */,
+				FAAB924C2AE8D16900C1BECB /* SearchViewController.swift */,
 			);
-			path = Chats;
+			path = SearchViewController;
 			sourceTree = "<group>";
 		};
 		FA32E3C52A34489E00A47780 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				FA07DC1A2A33AAE200541EE3 /* AppDelegate.swift */,
-				FA07DC1C2A33AAE200541EE3 /* SceneDelegate.swift */,
+				FAAB924E2AE8D1B300C1BECB /* Base */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -170,8 +174,9 @@
 		FA32E3C72A3448CD00A47780 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */,
-				FACFB2BE2A36FD5B00997ABD /* LoginView.swift */,
+				FA2E4D552A3B0E8E00F660F0 /* UsersTableViewCell.swift */,
+				FA32E3CB2A3449BD00A47780 /* CustomCollectionViewCell.swift */,
+				FAAB92432AE8CAFD00C1BECB /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,13 +184,37 @@
 		FA32E3C82A3448DB00A47780 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA32E3CB2A3449BD00A47780 /* CustomCollectionViewCell.swift */,
 				FA32E3CD2A344A2D00A47780 /* Models.swift */,
 				FA2736CD2A373F420011CD23 /* CheckField.swift */,
 				FAED05472A39C33C00E6C8C2 /* NetworkService.swift */,
-				FA2E4D552A3B0E8E00F660F0 /* UsersTableViewCell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAAB92432AE8CAFD00C1BECB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FAD4C9652A34568B00CAD4FC /* RegistrationView.swift */,
+				FACFB2BE2A36FD5B00997ABD /* LoginView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		FAAB92472AE8CCC700C1BECB /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAAB92482AE8CD2500C1BECB /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		FAAB924E2AE8D1B300C1BECB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FA07DC1A2A33AAE200541EE3 /* AppDelegate.swift */,
+				FA07DC1C2A33AAE200541EE3 /* SceneDelegate.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		FAAC360F2A34993D00189A76 /* Authentication */ = {
@@ -200,6 +229,7 @@
 		FACFB2C02A3700B400997ABD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FAAB924A2AE8CF6000C1BECB /* Helpers.swift */,
 				FACFB2C82A370DC500997ABD /* Extensions */,
 			);
 			path = Helpers;
@@ -210,7 +240,8 @@
 			children = (
 				FACFB2C22A37012400997ABD /* MainTabBarController.swift */,
 				FA2E4D532A3B08D800F660F0 /* Users */,
-				FA2E4D542A3B08FC00F660F0 /* Chats */,
+				FA2E4D542A3B08FC00F660F0 /* SearchViewController */,
+				FAAB92472AE8CCC700C1BECB /* SettingsViewController */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -219,17 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				FACFB2C92A370DE300997ABD /* UIColor + Entension.swift */,
-				FACFB2CD2A370EA400997ABD /* Colors */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FACFB2CD2A370EA400997ABD /* Colors */ = {
-			isa = PBXGroup;
-			children = (
-				FACFB2CB2A370E6D00997ABD /* Colors.swift */,
-			);
-			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,22 +370,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA32E3D22A344BA200A47780 /* LoginViewController.swift in Sources */,
+				FAAB924B2AE8CF6000C1BECB /* Helpers.swift in Sources */,
 				FA32E3CA2A34495500A47780 /* StartViewController.swift in Sources */,
 				FA32E3D02A344B6800A47780 /* RegViewController.swift in Sources */,
-				FACFB2CC2A370E6D00997ABD /* Colors.swift in Sources */,
+				FAAB92492AE8CD2500C1BECB /* SettingsViewController.swift in Sources */,
 				FACFB2C52A37018E00997ABD /* UsersViewController.swift in Sources */,
 				FACFB2CA2A370DE300997ABD /* UIColor + Entension.swift in Sources */,
 				FACFB2C32A37012400997ABD /* MainTabBarController.swift in Sources */,
 				FACFB2BF2A36FD5B00997ABD /* LoginView.swift in Sources */,
 				FA2736CE2A373F430011CD23 /* CheckField.swift in Sources */,
 				FA07DC1B2A33AAE200541EE3 /* AppDelegate.swift in Sources */,
+				FAAB924D2AE8D16900C1BECB /* SearchViewController.swift in Sources */,
 				FAED05482A39C33C00E6C8C2 /* NetworkService.swift in Sources */,
 				FA07DC1D2A33AAE200541EE3 /* SceneDelegate.swift in Sources */,
 				FA2E4D562A3B0E8E00F660F0 /* UsersTableViewCell.swift in Sources */,
 				FA32E3CC2A3449BD00A47780 /* CustomCollectionViewCell.swift in Sources */,
 				FA32E3CE2A344A2D00A47780 /* Models.swift in Sources */,
 				FACFB2C72A3701D500997ABD /* MessageListController.swift in Sources */,
-				FA8E6D732A3B569D0060BF5B /* ChatViewController.swift in Sources */,
+				FA8E6D732A3B569D0060BF5B /* ConversationViewController.swift in Sources */,
 				FAD4C9662A34568B00CAD4FC /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -486,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -14,18 +14,17 @@ protocol CustomCollectionViewCellProtocol: AnyObject {
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
-    weak var delegate: CustomCollectionViewCellProtocol?
-    
     static let customID = "customID"
+    weak var delegate: CustomCollectionViewCellProtocol?
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -62,6 +61,18 @@ class CustomCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    private lazy var bottomPageControl: UIPageControl = {
+        let pc = UIPageControl(frame: .zero)
+        pc.translatesAutoresizingMaskIntoConstraints = false
+        pc.numberOfPages = 3
+        pc.backgroundColor = .none
+        pc.currentPageIndicatorTintColor = UIColor.red
+        pc.isSelected = true
+        pc.backgroundStyle = .prominent
+        pc.isUserInteractionEnabled = true
+        return pc
+    }()
+    
     @objc private func goToRegVc() {
         self.delegate?.moveToRegVC()
     }
@@ -72,7 +83,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -81,7 +92,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         button.layer.borderWidth = 3
         button.backgroundColor = UIColor.systemBlue
         button.layer.shadowColor = UIColor.systemOrange.cgColor
@@ -91,18 +101,20 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     public func setImage(images: Slides) {
         self.imageView.image = images.image
+        self.bottomPageControl.currentPage = images.id
         
         if images.id == 2 {
             self.button.layer.borderColor = UIColor.systemOrange.cgColor
             self.titleLabel.textColor = .systemRed
             self.button.isHidden = false
             self.clearButton.isHidden = false
+            self.bottomPageControl.isHidden = true
         }
         
-    
     }
     
-    private func setup() {
+    
+    private func setupConstraints() {
         self.contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
         self.imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
@@ -116,7 +128,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
             self.titleLabel.topAnchor.constraint(equalTo: self.imageView.topAnchor, constant: 150),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.imageView.leadingAnchor, constant: 80),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.imageView.trailingAnchor, constant: -80),
-            //self.titleLabel.widthAnchor.constraint(equalToConstant: 300),
             self.titleLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         
@@ -135,6 +146,13 @@ class CustomCollectionViewCell: UICollectionViewCell {
             self.clearButton.trailingAnchor.constraint(equalTo: self.imageView.trailingAnchor, constant: -100),
             self.clearButton.centerXAnchor.constraint(equalTo: self.imageView.centerXAnchor),
             self.clearButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        self.contentView.addSubview(bottomPageControl)
+        NSLayoutConstraint.activate([
+            self.bottomPageControl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+            self.bottomPageControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100),
+            self.bottomPageControl.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -100)
         ])
         
     }

@@ -33,8 +33,8 @@ struct CurrentUser {
     
     var id: String
     var email: String
+    var avatar: String
 
-    
     // gender
     // avatar
     // t.d.

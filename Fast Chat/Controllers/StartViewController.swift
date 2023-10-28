@@ -26,7 +26,7 @@ class StartViewController: UIViewController {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.backgroundColor = .black
         collectionView.isPagingEnabled = true
-        //collectionView.clipsToBounds = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = false
         collectionView.alwaysBounceHorizontal = true
         return collectionView
@@ -75,7 +75,8 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.customID, for: indexPath) as! CustomCollectionViewCell
         
-        cell.setImage(images: slides[indexPath.item])
+        let items = slides[indexPath.item]
+        cell.setImage(images: items)
         cell.delegate = self
         return cell
     }

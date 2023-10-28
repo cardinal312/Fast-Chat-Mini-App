@@ -53,12 +53,12 @@ class NetworkService {
             } else {
                 if let result = result {
                     complition(.success)
-//                    if result.user.isEmailVerified {
-//                        complition(.success)
-//                    } else {
-//                        self?.confirmEmail()
-//                        complition(.noVerify)
-//                    }
+                    //                    if result.user.isEmailVerified {
+                    //                        complition(.success)
+                    //                    } else {
+                    //                        self?.confirmEmail()
+                    //                        complition(.noVerify)
+                    //                    }
                 }
             }
         }
@@ -75,19 +75,20 @@ class NetworkService {
             .whereField("email", isNotEqualTo: email)      // Its me in FB
             .getDocuments { snap, error in
                 
-            if error == nil {
-                if let docs = snap?.documents {
-                    for doc in docs {
-                        let data = doc.data()
-                        let userId = doc.documentID
-                        let email = data["email"] as? String
-                        
-                        currentUsers.append(CurrentUser(id: userId, email: email ?? "data == nil, fuck you ****"))
+                if error == nil {
+                    if let docs = snap?.documents {
+                        for doc in docs {
+                            let data = doc.data()
+                            let userId = doc.documentID
+                            let email = data["email"] as? String
+                            let avatar = data["avatar"] as? String
+                            
+                            currentUsers.append(CurrentUser(id: userId, email: email ?? "data == nil", avatar: avatar ?? "No wolf"))
+                        }
                     }
+                    complition(currentUsers)
                 }
-                complition(currentUsers)
             }
-        }
     }
     
     
@@ -99,7 +100,7 @@ class NetworkService {
         
         if let uid = Auth.auth().currentUser?.uid {
             if convoId == nil {
-                       //create new chats dialog
+                //create new chats dialog
                 let convoId = UUID().uuidString
                 
                 
@@ -176,10 +177,10 @@ class NetworkService {
                     if error == nil {
                         complition(convoId!)
                     }
+                }
             }
         }
     }
-}
     
     func updateConver() {
         
@@ -199,11 +200,11 @@ class NetworkService {
                     }
                     if let snap = snap, !snap.documents.isEmpty {
                         let doc = snap.documents.first
-                      if let convoId = doc?.documentID {
+                        if let convoId = doc?.documentID {
                             completion(convoId)
+                        }
                     }
                 }
-            }
         }
     }
     
@@ -245,18 +246,12 @@ class NetworkService {
                             } else {
                                 sender = Sender(senderId: "2", displayName: "")
                             }
-                            
-                            
-                            
                             msgs.append(Message(sender: sender, messageId: messageId, sentDate: sentDate, kind: .text(text)))
                         }
                         complition(msgs)
-                    }
-                    
                 }
-            
+            }
         }
-        
     }
     
     func getOneMessage() {

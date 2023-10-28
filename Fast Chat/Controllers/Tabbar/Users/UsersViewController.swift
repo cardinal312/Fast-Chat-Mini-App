@@ -14,37 +14,42 @@ class UsersViewController: UIViewController {
     
     
     private lazy var tableView: UITableView = {
-        
-        let tb = UITableView(frame: .zero, style: .plain)
-        tb.translatesAutoresizingMaskIntoConstraints = false
-        tb.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tb.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersTableViewCell.id)
-        tb.clipsToBounds = true
-        tb.bounces = false
-        tb.backgroundColor = .none
-        tb.separatorStyle = .none
-        tb.delegate = self
-        tb.dataSource = self
-        tb.showsVerticalScrollIndicator = false
-
-        return tb
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tv.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersTableViewCell.id)
+        tv.bounces = false
+        tv.backgroundColor = .clear
+        tv.separatorStyle = .none
+        tv.delegate = self
+        tv.dataSource = self
+        tv.showsVerticalScrollIndicator = false
+        return tv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
-        title = "Users"
+        
+        title = Helpers.Localization.userList
+        
+        self.view.backgroundColor = .systemBackground
+        //        navigationItem.title = "Users"
+        //        navigationController?.navigationBar.prefersLargeTitles = true
         
         tableViewConfigure()
         getDataFromDataBase()
+        
+        
     }
+    
+    
     
     
     private func getDataFromDataBase() {
         self.servise.getAllUsers { [weak self] users in
             self?.userArray = users
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
         }
@@ -73,24 +78,32 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.id, for: indexPath) as? UsersTableViewCell else { return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) }
         
-        cell.backgroundColor = .systemIndigo
-        cell.layer.cornerRadius = 12
-        cell.selectionStyle = .none
-    //    cell.hz()
+        
+        //        cell.clipsToBounds = true
+        //        cell.backgroundColor = .systemIndigo
+        //        cell.layer.cornerRadius = 12
+        
+        //TODO: - Make to change personal data of user in db
         let cellname = userArray[indexPath.row]
-        cell.cellSetValues(cellname.email)
+        
+        DispatchQueue.main.async { 
+            cell.cellSetValues(cellname)
+            self.tableView.reloadData()
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 112.5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let userId = userArray[indexPath.row].id
         
-        let vc = ChatViewController()
+        let vc = ConversationViewController()
+        vc.modalPresentationStyle = .popover
         vc.otherId = userId
         
         self.navigationController?.pushViewController(vc, animated: true)

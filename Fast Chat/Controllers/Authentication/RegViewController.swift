@@ -78,7 +78,10 @@ extension RegViewController: RegistrationViewProtocol {
                         
                         
                         let alert = UIAlertController(title: "Congratulations 🎉🎉🎉", message: "You successfully log in! We are sent message to your email adress: \(self!.regView.emailTextField.text ?? "nil"), please confirm this into 30 days", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "OK", style: .cancel)
+                        let action = UIAlertAction(title: "OK", style: .cancel) { _ in
+                            // TODO: - Go to AppCoodinator
+                            
+                        }
                         alert.addAction(action)
                         self?.present(alert, animated: true)
                         
